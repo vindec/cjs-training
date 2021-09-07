@@ -3,11 +3,13 @@ const { I } = inject();
 module.exports = {
 
   // locators
-  aboutPageContent: 'Betclic possède une offre de paris sportifs complète sur l\'ensemble des sports autorisés par l\'ANJ.',
+  aboutButton: '#footer_about',
+  aboutPageContent: '//div[contains(@class,"listeContent")]//p[1]',
 
   // methods
-  validateContent() {
-    I.waitForText(this.aboutPageContent);
+  validateContent(state) {
+    for (let i = 1; i < state.numberOfLinks; i++) {
+      I.assertContain(state['currentText' + i], state['expectedText' + i]);
+    }
   }
-
 }

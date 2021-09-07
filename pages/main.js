@@ -6,8 +6,5 @@ module.exports = {
   mainPageUrl: 'https://www.betclic.fr/',
 
   // methods
-  goToMainPage() {
-    I.amOnPage(this.mainPageUrl);
-  }
 
 }

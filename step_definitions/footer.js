@@ -1,17 +1,19 @@
-const { I, mainPage, cookiesFragment, footerFragment, aboutPage } = inject();
+const { I, mainPage, cookiesFragment, navigationFragment, aboutPage } = inject();
+let state = {};
+
+Before(() => {
+  state = {};
+});
 
 Given('a user coming to Betclic', () => {
-  mainPage.goToMainPage();
+  navigationFragment.goToMainPage();
 });
 
-When('the user goes to the about link in footer', () => {
+When('the user goes to the link in footer', async (dataTable) => {
   cookiesFragment.rejectCookies();
-  footerFragment.goToAboutLink();
+  await navigationFragment.goToFooterLink(dataTable, state);
 });
 
-Then('the user sees text content in the about page', () => {
-  aboutPage.validateContent();
-  
-  I.say('I will wait 2 seconds because it\'s too fast') // not mandatory for testing
-  I.wait(2)// not mandatory for testing
+Then('the user sees text content in the page', () => {
+  aboutPage.validateContent(state);
 });

@@ -10,14 +10,18 @@ exports.config = {
     Playwright: {
       url: 'http://localhost',
       show: true,
-      browser: 'chromium'
+      browser: 'chromium',
+      waitForNavigation: 'domcontentloaded'
+    },
+    ChaiWrapper: {
+      require: "codeceptjs-chai"
     }
   },
   include: {
     I: './steps_file.js',
     mainPage: './pages/main.js',
     cookiesFragment: './fragments/cookies.js',
-    footerFragment: './fragments/footer.js',
+    navigationFragment: './fragments/navigation.js',
     aboutPage: './pages/about.js'
   },
   mocha: {},
