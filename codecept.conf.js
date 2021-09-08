@@ -22,7 +22,10 @@ exports.config = {
     mainPage: './pages/main.js',
     cookiesFragment: './fragments/cookies.js',
     navigationFragment: './fragments/navigation.js',
-    aboutPage: './pages/about.js'
+    offerSearchFragment: './fragments/offerSearch.js',
+    footerFragment: './fragments/footer.js',
+    aboutPage: './pages/about.js',
+    responsibleGamingPage: './pages/responsibleGaming.js'
   },
   mocha: {},
   bootstrap: null,

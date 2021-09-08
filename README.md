@@ -12,4 +12,6 @@ npm install
 
 # run
 
-npx codeceptjs run --grep "@about" --steps --verbose
+npx codeceptjs run --grep "@footer" --steps --verbose
+
+npx codeceptjs run --grep "@noResult" --steps --verbose

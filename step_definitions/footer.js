@@ -1,19 +1,14 @@
-const { I, mainPage, cookiesFragment, navigationFragment, aboutPage } = inject();
+const { I, footerFragment } = inject();
 let state = {};
 
 Before(() => {
   state = {};
 });
 
-Given('a user coming to Betclic', () => {
-  navigationFragment.goToMainPage();
-});
-
 When('the user goes to the link in footer', async (dataTable) => {
-  cookiesFragment.rejectCookies();
-  await navigationFragment.goToFooterLink(dataTable, state);
+  await footerFragment.goToFooterLink(dataTable, state);
 });
 
 Then('the user sees text content in the page', () => {
-  aboutPage.validateContent(state);
+  footerFragment.validateContent(state);
 });
